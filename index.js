@@ -16,7 +16,7 @@ function myFunction() {
 myFunction();
 
 //🚀🚀🚀 ⬇️ 📝 Explanation ⬇️ 📝 🚀🚀🚀: 
-// nestedFunction can access the variable internal because functions can reach outside of their scope to access variables but cannot reach inside nested functions to access variables. nestedFunction would also be able to access external for the same reason: it is declared in the global scope and is therefore accessible to all functions. internal is declared inside myFunction, which means that it can only be accessed by functions nested within myFunction.
+// nestedFunction can access the variable internal because functions can reach outside of their scope to access variables but cannot reach inside nested functions to access variables because the nested function creates a closure, which is out of scope for a function with "broader" scope. nestedFunction would also be able to access external for the same reason: it is declared in the global scope and is therefore accessible to all functions. internal is declared inside myFunction, which means that it can only be accessed by functions nested within myFunction.
 
 
 
@@ -235,6 +235,8 @@ console.log(cuboidTwo.surfaceArea()); // 130
 
 // 🦄 💪 Stretch Task: Extend the base class CuboidMaker with a sub class called CubeMaker.  Find out the formulas for volume and surface area for cubes and create those methods using the dimension properties from CuboidMaker.  Test your work by logging out your volume and surface area. 🦄 💪
 
+// **first completed this task using .prototype and Object.create and then completed it again using classes**
+
 // function CubeMaker(props){
 //   CuboidMaker.call(this, props);
 //   this.side = props.side;
@@ -260,6 +262,9 @@ console.log(cuboidTwo.surfaceArea()); // 130
 // console.log('cube volume', cube.cubeVolume());
 // console.log('cube surface area', cube.cubeSurfaceArea());
 
+
+
+// **completed with classes**
 
 // class CubeMakerTwo extends CuboidMakerTwo{
 //   constructor(props){

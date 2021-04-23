@@ -29,13 +29,46 @@ Edit this document to include your answers after each question. Make sure to lea
 
 1. Briefly compare and contrast `.forEach` & `.map` (2-3 sentences max)
 
+    Both are array methods that execute a provided function on every element of an array. .forEach will mutate the original array and a return statement is optional (the return values will be discarded) whereas .map will create a new array and a return statement is required. .map is best for when you want to change your data and .forEach may be best when you want to do something with your data (but not change it) - eg saving your data.
+
 2. Explain the difference between a callback and a higher order function.
+
+    A higher order function receives other functions as arguments and a callback function is passed into a higher order function as an argument. 
+    For example: 
+    
+    function higherOrderFunction(callbackFunction){
+        return callbackFunction();
+    }
+    higherOrderFunction(callbackFunction1);
+
+    When higherOrderFunction is invoked on line 42, callbackFunction1 will be passed into the function as an argument and then is called (inside of higherOrderFunction) on line 40. higherOrderFunction would return the value of callbackFunction1.
 
 3. What is closure?
 
+    A closure is the "one way street" that is created when nested a function inside of another function. The function inside the outer function has a global lexical scope, meaning that it has access to all variables defined in its code block (between the curly braces), in the outer function's code block, and in the global scope. The outer function, on the other hand, does not have access to variables declared inside the scope of the inner function. The outer function's lexical scope is defined to its code block and the global scope.
+
 4. Describe the four rules of the 'this' keyword.
 
+    1. Window binding - when "this" has not been given context (ie it is used in the global scope, so not inside an object that is itself inside of the window object, the value of "this" will be the window Object.
+
+    2. Implicit binding - whenever a function is called by using a preceding dot ( eg myObj.function() ), the value of "this" will be the object to the left of the dot. Implicit binding applies specifically to objects with methods.
+
+    3. New binding - When using a constructor function, "this" refers to the new instance of the object that is created by the constructor function. eg if you had a new constructor function: function DogMaker(prop){
+      this.name = prop.name,
+      this.breed = prop.breed
+    }
+    and you initialize a new object by: 
+    const buddy = new DogMaker({
+      name = 'Buddy',
+      breed = 'Basset Hound'
+    });
+    then "this" (in lines 55 and 56) will have the value of the new object that is created using the constructor function (in this example: buddy). So the constructor function would assign the value of this.name (which in this initialization can be thought of as equivalent to buddy.name) to the value of the name key of the object getting passed into the constructor function via the placeholder value "prop".
+
+    4. Explicit binding - You can use explicit binding to explicitly define the value of "this". For example, by using .call(), .apply(), or .bind(), you can override implicit binding and assign the value of this to the arguments that are getting passed into the method. .call() will immediately call the function and pass in arguments one by one, .apply() will immediately call the function and pass in arguments as an array, and .bind() will return a new function that can be invoked later. 
+
 5. Why do we need super() in an extended class?
+
+    super() passes the keys and values (including methods) from the parent down to the child. super() works together with extends to figure out where to grab keys and values from, and then super() passes those on to the child. Together with extends, super() does what Parent.call(this, attributes) (inherit the keys) and Child.prototype = Object.create(Parent.prototype) (inherit the methods) do when using a constructor to function to create a child class without using classes.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade. 
 
