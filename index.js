@@ -16,8 +16,7 @@ function myFunction() {
 myFunction();
 
 //🚀🚀🚀 ⬇️ 📝 Explanation ⬇️ 📝 🚀🚀🚀: 
-
-
+// nestedFunction can access the variable internal because functions can reach outside of their scope to access variables but cannot reach inside nested functions to access variables. nestedFunction would also be able to access external for the same reason: it is declared in the global scope and is therefore accessible to all functions. internal is declared inside myFunction, which means that it can only be accessed by functions nested within myFunction.
 
 
 
@@ -28,10 +27,16 @@ myFunction();
     
 For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you may use a for loop for this function if you wish */
 
-function summation(/*Your Code Here*/) {
+function summation(number) {
   /*Your Code Here*/
-
+  let sum = 0
+  for(let i = 0; i <= number; i++){
+    sum += i;
   }
+  console.log('summation', sum);
+  return sum;
+  }
+  summation(6);
  
 
 // 🦁🦁🦁 Topic 2: ADVANCED Array Methods 🦁🦁🦁
